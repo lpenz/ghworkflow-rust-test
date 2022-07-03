@@ -1,0 +1,20 @@
+---
+name: CI
+on: [ workflow_dispatch, push, pull_request ]
+jobs:
+  omnilint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker://lpenz/omnilint:0.4
+  rust:
+    uses: lpenz/ghworkflow-rust/.github/workflows/rust.yml@devel
+    with:
+      coveralls: true
+      deb: true
+      publish_github_release_files: ghworkflow-rust-test
+      publish_packagecloud: true
+      publish_packagecloud_repository: debian/debian/bullseye
+    secrets:
+      CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+      PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}

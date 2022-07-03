@@ -1,0 +1,20 @@
+[package]
+name = "ghworkflow-rust-test"
+description = "Test of ghworkflow-rust"
+version = "0.1.0"
+authors = ["Leandro Lisboa Penz <lpenz@lpenz.org>"]
+edition = "2021"
+license = "MIT"
+readme = "README.md"
+categories = ["command-line-utilities"]
+keywords = ["watch", "command-line"]
+
+[dependencies]
+
+[package.metadata.deb]
+section = "utils"
+assets = [
+    ["target/release/ghworkflow-rust-test", "usr/bin/", "755"],
+    ["LICENSE", "usr/share/doc/ghworkflow-rust-test/", "644"],
+    ["README.md", "usr/share/doc/ghworkflow-rust-test/", "644"],
+]
