@@ -11,6 +11,7 @@ jobs:
     uses: lpenz/ghworkflow-rust/.github/workflows/rust.yml@devel
     with:
       coveralls: true
+      codecov: true
       deb: true
       publish_github_release_files: ghworkflow-rust-test
       publish_packagecloud: true
