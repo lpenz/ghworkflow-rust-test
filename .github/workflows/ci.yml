@@ -15,7 +15,8 @@ jobs:
       deb: true
       publish_github_release_files: ghworkflow-rust-test
       publish_packagecloud: true
-      publish_packagecloud_repository: debian/debian/bullseye
+      publish_packagecloud_repository: |
+        ["debian/debian/bullseye", "ubuntu/ubuntu/focal"]
     secrets:
       CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
       PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
