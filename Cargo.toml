@@ -20,3 +20,10 @@ assets = [
     ["LICENSE", "usr/share/doc/ghworkflow-rust-test/", "644"],
     ["README.md", "usr/share/doc/ghworkflow-rust-test/", "644"],
 ]
+
+[package.metadata.generate-rpm]
+assets = [
+    { source = "target/release/ghworkflow-rust-test", dest = "/usr/bin/", mode = "755" },
+    { source = "LICENSE", dest = "/usr/share/doc/ghworkflow-rust-test/", mode = "644" },
+    { source = "README.md", dest = "/usr/share/doc/ghworkflow-rust-test/", mode = "644" },
+]
