@@ -2,8 +2,8 @@
 name = "ghworkflow-rust-test"
 description = "Test of ghworkflow-rust"
 version = "0.1.2"
+edition = "2024"
 authors = ["Leandro Lisboa Penz <lpenz@lpenz.org>"]
-edition = "2021"
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/lpenz/ghworkflow-rust-test"
