@@ -13,6 +13,7 @@ jobs:
       coveralls: true
       codecov: true
       deb: true
+      rpm: true
       release_files: ghworkflow-rust-test
       publish_github_release: true
       publish_packagecloud_repository_deb: |
