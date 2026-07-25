@@ -1,22 +1,24 @@
 ---
 name: CI
-on: [ workflow_dispatch, push, pull_request ]
+on: [workflow_dispatch, push, pull_request]  # yamllint disable-line rule:truthy
 jobs:
   omnilint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: docker://lpenz/omnilint:0.4
+      - uses: actions/checkout@v7.0.1
+      - uses: docker://lpenz/omnilint:0.6.0
   rust:
     uses: lpenz/ghworkflow-rust/.github/workflows/rust.yml@devel
     with:
       coveralls: true
       codecov: true
       deb: true
-      publish_github_release_files: ghworkflow-rust-test
-      publish_packagecloud: true
-      publish_packagecloud_repository: |
-        ["debian/debian/bullseye", "ubuntu/ubuntu/focal"]
+      release_files: ghworkflow-rust-test
+      publish_github_release: true
+      publish_packagecloud_repository_deb: |
+        ["debian/debian/trixie", "ubuntu/ubuntu/noble"]
+      publish_packagecloud_repository_rpm: |
+        ["rpm/rpm_any/rpm_any"]
     secrets:
       CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
       PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
