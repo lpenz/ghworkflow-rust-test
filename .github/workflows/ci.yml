@@ -14,6 +14,8 @@ jobs:
       codecov: true
       deb: true
       rpm: true
+      dependencies_debian: |
+        flake8
       release_files: ghworkflow-rust-test
       publish_github_release: true
       publish_packagecloud_repository_deb: |
